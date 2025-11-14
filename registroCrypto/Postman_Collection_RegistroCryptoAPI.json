@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "registro-crypto-api",
+		"name": "RegistroCryptoAPI",
+		"description": "Colección de endpoints para el Sistema de Registro de Criptomonedas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener Todos los Registros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto"
+					]
+				},
+				"description": "Obtiene todos los registros del portafolio"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Criptomoneda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto/buscar?q=bitcoin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "bitcoin",
+							"description": "Nombre o símbolo de la criptomoneda"
+						}
+					]
+				},
+				"description": "Busca una criptomoneda en CoinGecko API"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Registro por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto",
+						"id",
+						"1"
+					]
+				},
+				"description": "Obtiene un registro por su ID y actualiza el precio actual"
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar por Email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto/email/juan.perez@email.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto",
+						"email",
+						"juan.perez@email.com"
+					]
+				},
+				"description": "Obtiene todos los registros de un inversor por su email"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Nuevo Registro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"coinId\": \"bitcoin\",\n    \"nombre\": \"Bitcoin\",\n    \"simbolo\": \"btc\",\n    \"precioActual\": 45000.00,\n    \"precioCompra\": 42000.00,\n    \"cantidadComprada\": 0.5,\n    \"valorTotal\": 21000.00,\n    \"cambio24h\": 2.5,\n    \"cambio7d\": 5.2,\n    \"marketCap\": 850000000000,\n    \"volumen24h\": 25000000000,\n    \"logoUrl\": \"https://assets.coingecko.com/coins/images/1/large/bitcoin.png\",\n    \"nombreInversor\": \"Juan Pérez\",\n    \"emailInversor\": \"juan.perez@email.com\",\n    \"plataforma\": \"Binance\",\n    \"fechaCompra\": \"2024-01-15\",\n    \"estrategia\": \"Largo plazo\",\n    \"observaciones\": \"Inversión inicial en Bitcoin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto"
+					]
+				},
+				"description": "Crea un nuevo registro de compra de criptomoneda"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Registro",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"codigoRegistro\": \"CRYPTO-001\",\n    \"coinId\": \"bitcoin\",\n    \"nombre\": \"Bitcoin\",\n    \"simbolo\": \"btc\",\n    \"precioActual\": 46000.00,\n    \"precioCompra\": 42000.00,\n    \"cantidadComprada\": 0.5,\n    \"valorTotal\": 21000.00,\n    \"cambio24h\": 3.2,\n    \"cambio7d\": 6.5,\n    \"marketCap\": 860000000000,\n    \"volumen24h\": 26000000000,\n    \"logoUrl\": \"https://assets.coingecko.com/coins/images/1/large/bitcoin.png\",\n    \"nombreInversor\": \"Juan Pérez\",\n    \"emailInversor\": \"juan.perez@email.com\",\n    \"plataforma\": \"Binance\",\n    \"fechaCompra\": \"2024-01-15\",\n    \"estrategia\": \"Largo plazo\",\n    \"observaciones\": \"Inversión inicial en Bitcoin - Actualizada\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto"
+					]
+				},
+				"description": "Actualiza un registro existente"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Registro",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/RegistroCryptoApi/api/crypto/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RegistroCryptoApi",
+						"api",
+						"crypto",
+						"id",
+						"1"
+					]
+				},
+				"description": "Elimina un registro por su ID"
+			},
+			"response": []
+		}
+	]
+}
+
+
