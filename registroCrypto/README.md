@@ -222,7 +222,7 @@ Elimina un registro por ID.
 
 ## 👨‍💻 Autor
 
-Desarrollado como proyecto académico para SENA ADSO.
+Alejandro Amado - Aprendiz ADSO Sena - Colombia.
 
 ## 📄 Licencia
 
